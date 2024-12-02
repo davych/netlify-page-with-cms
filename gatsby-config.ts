@@ -3,7 +3,6 @@ require('dotenv').config();
 
 const IS_DEV = process.env.NODE_ENV === 'development';
 if (IS_DEV) process.env.ENABLE_GATSBY_REFRESH_ENDPOINT = 'true';
-
 const config: GatsbyConfig = {
     siteMetadata: {
         title: `tutorial-gatsby-contentful`,
@@ -20,7 +19,7 @@ const config: GatsbyConfig = {
         {
             resolve: 'gatsby-source-contentful',
             options: {
-                accessToken: IS_DEV ? process.env.CONTENTFUL_PREVIEW_TOKEN : process.env.CONTENTFUL_DELIVERY_TOKEN,
+                accessToken: IS_DEV ? process.env.CONTENTFUL_PREVIEW_TOKEN : process.env.CONTENTFUL_DELIVERY_ACCESS_TOKEN,
                 spaceId: process.env.CONTENTFUL_SPACE_ID,
                 host: IS_DEV ? `preview.contentful.com` : `cdn.contentful.com`
             }
