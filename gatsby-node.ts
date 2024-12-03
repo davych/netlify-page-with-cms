@@ -34,3 +34,15 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
         });
     });
 };
+
+export const onCreateWebpackConfig = ({ actions }) => {
+    actions.setWebpackConfig({
+      resolve: {
+        alias: {
+          "@/components": path.resolve(__dirname, "src/components"),
+          "@/lib/utils": path.resolve(__dirname, "src/lib/utils"),
+          "@/hooks": path.resolve(__dirname, "src/hooks"),
+        },
+      },
+    })
+  }
